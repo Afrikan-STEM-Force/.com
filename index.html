@@ -12,6 +12,9 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
         
         <script src="script.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -338,16 +341,13 @@
                                 <label for="location">Location</label>
                             </div>
                             <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" inputmode="numeric" pattern="\d{10}" maxlength="10" required />
-                                <label for="phone">Phone number</label>
+                             <div class="mb-3">
+                                <label for="phone" class="form-label">Phone number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="dial-code">+233</span>
+                                    <input type="tel" class="form-control" id="phone" placeholder="541234567" required>
+                                </div>
                             </div>
-                                        <script>
-                                            document.getElementById('phone').addEventListener('input', function (e) {
-                                                // Remove any non-digit characters
-                                                this.value = this.value.replace(/\D/g, '');
-                                            });
-                                        </script>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
