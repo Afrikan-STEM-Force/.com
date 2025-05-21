@@ -1,20 +1,14 @@
 window.addEventListener('DOMContentLoaded', event => {
-
-    // Navbar shrink function
+    // Shrink navbar on scroll
     const navbarShrink = () => {
         const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
+        if (!navbarCollapsible) return;
         if (window.scrollY === 0) {
             navbarCollapsible.classList.remove('navbar-shrink');
         } else {
             navbarCollapsible.classList.add('navbar-shrink');
         }
     };
-
-    
-    // Shrink the navbar on scroll
     document.addEventListener('scroll', navbarShrink);
 
     // Smooth scrolling for nav links
@@ -26,14 +20,14 @@ window.addEventListener('DOMContentLoaded', event => {
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 70, // Adjust for navbar height
+                    top: targetSection.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Bootstrap scrollspy initialization
+    // Scrollspy
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
@@ -42,83 +36,97 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-    //form handler
-    // Initialize EmailJS with your public key
-emailjs.init("jqJE1ffervnm4dJ-z");
+    // Initialize EmailJS
+    emailjs.init("jqJE1ffervnm4dJ-z"); // Replace with your actual EmailJS public key
 
-// Function to validate form inputs
-function validateForm(formData) {
-    const { name, email, phone, message } = formData;
+    // Enforce numeric-only input for phone field
+    document.getElementById('phone').addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
 
-    if (!name || !email || !phone || !message) {
-        alert("Please fill in all required fields.");
-        return false;
+    //zip codes etc
+     const phoneInput = document.querySelector("#phone");
+  const dialCodeSpan = document.getElementById("dial-code");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "auto",
+    nationalMode: true, // User enters national number only
+    geoIpLookup: callback => {
+      fetch("https://ipinfo.io/json?token=your_token_here")
+        .then(resp => resp.json())
+        .then(resp => callback(resp.country))
+        .catch(() => callback("us"));
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+  });
+
+  phoneInput.addEventListener("countrychange", function () {
+    const selectedDialCode = iti.getSelectedCountryData().dialCode;
+    dialCodeSpan.textContent = `+${selectedDialCode}`;
+  });
+    // Validate form inputs
+    function validateForm(formData) {
+        const { name, email, phone, message } = formData;
+        if (!name || !email || !phone || !message) {
+            alert("Please fill in all required fields.");
+            return false;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+        return true;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Please enter a valid email address.");
-        return false;
+    // Show success or error message
+    function showFeedbackMessage(success) {
+        const successMsg = document.getElementById('submitSuccessMessage');
+        const errorMsg = document.getElementById('submitErrorMessage');
+        if (success) {
+            successMsg.classList.remove('d-none');
+            errorMsg.classList.add('d-none');
+            successMsg.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            successMsg.classList.add('d-none');
+            errorMsg.classList.remove('d-none');
+            errorMsg.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
-    return true;
-}
+    // Submit button click handler
+    document.getElementById('submitButton').addEventListener('click', function (event) {
+        event.preventDefault();
 
-// Function to show feedback messages
-function showFeedbackMessage(success) {
-    const successMsg = document.getElementById('submitSuccessMessage');
-    const errorMsg = document.getElementById('submitErrorMessage');
+        const formData = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            institution: document.getElementById('institution').value.trim(),
+            location: document.getElementById('location').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            message: document.getElementById('message').value.trim(),
+        };
 
-    if (success) {
-        successMsg.classList.remove('d-none');
-        errorMsg.classList.add('d-none');
-        successMsg.scrollIntoView({ behavior: 'smooth' }); // scroll to it
-    } else {
-        successMsg.classList.add('d-none');
-        errorMsg.classList.remove('d-none');
-        errorMsg.scrollIntoView({ behavior: 'smooth' }); // scroll to error
-    }
-}
+        const formattedPhone = iti.getNumber(); // e.g. "+233541234567"'
+        const fullPhone = `${dialCodeSpan.textContent}${phoneInput.value}`;
 
-// Add event listener to the submit button
-document.getElementById('submitButton').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent default form submission
+        console.log("Form Data Collected:", formData);
 
-    // Collect form data
-    const formData = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        institution: document.getElementById('institution').value.trim(),
-        location: document.getElementById('location').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        message: document.getElementById('message').value.trim(),
-    };
+        if (!validateForm(formData)) return;
 
-    // Log form data for debugging (remove in production)
-    console.log("Form Data Collected:", formData);
+        emailjs.send("service_6vfh60m", "template_amm1rca", formData)
+            .then((response) => {
+                console.log("Email sent successfully:", response.status, response.text);
+                showFeedbackMessage(true);
+            })
+            .catch((error) => {
+                console.error("Error sending email:", error);
+                showFeedbackMessage(false);
+            });
+    });
 
-    // Validate form data
-    if (!validateForm(formData)) {
-        return;
-    }
-
-    // Send data via EmailJS
-    emailjs.send("service_6vfh60m", "template_amm1rca", formData)
-        .then((response) => {
-            console.log("Email sent successfully:", response); // Log success response
-            showFeedbackMessage(true); // Show success message
-        })
-        .catch((error) => {
-            console.error("Error sending email:", error); // Log error response
-            showFeedbackMessage(false); // Show error message
-        });
-});
-
-
-    // Collapse the responsive navbar when toggler is visible
+    // Collapse responsive navbar after link click
     const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
+    const responsiveNavItems = [].slice.call(document.querySelectorAll('#navbarResponsive .nav-link'));
     responsiveNavItems.forEach(responsiveNavItem => {
         responsiveNavItem.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
@@ -127,34 +135,9 @@ document.getElementById('submitButton').addEventListener('click', function (even
         });
     });
 
-    // Activate SimpleLightbox plugin for gallery items
-    new SimpleLightbox({
-        elements: '#gallery a.gallery-box'
-    });
+    // Activate SimpleLightbox
+    new SimpleLightbox({ elements: '#gallery a.gallery-box' });
 
-    // Trigger navbar shrink on page load (if necessary)
+    // Trigger shrink on load
     navbarShrink();
-
-    // Form validation (uncomment if needed)
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', event => {
-            const inputs = document.querySelectorAll('input[required], textarea[required]');
-            let valid = true;
-
-            inputs.forEach(input => {
-                if (!input.value) {
-                    valid = false;
-                    input.classList.add('is-invalid');
-                } else {
-                    input.classList.remove('is-invalid');
-                }
-            });
-
-            if (!valid) {
-                event.preventDefault();
-                alert('Please fill in all required fields.');
-            }
-        });
-    }
 });
