@@ -65,12 +65,17 @@ function validateForm(formData) {
 
 // Function to show feedback messages
 function showFeedbackMessage(success) {
+    const successMsg = document.getElementById('submitSuccessMessage');
+    const errorMsg = document.getElementById('submitErrorMessage');
+
     if (success) {
-        document.getElementById('submitSuccessMessage').classList.remove('d-none');
-        document.getElementById('submitErrorMessage').classList.add('d-none');
+        successMsg.classList.remove('d-none');
+        errorMsg.classList.add('d-none');
+        successMsg.scrollIntoView({ behavior: 'smooth' }); // scroll to it
     } else {
-        document.getElementById('submitSuccessMessage').classList.add('d-none');
-        document.getElementById('submitErrorMessage').classList.remove('d-none');
+        successMsg.classList.add('d-none');
+        errorMsg.classList.remove('d-none');
+        errorMsg.scrollIntoView({ behavior: 'smooth' }); // scroll to error
     }
 }
 
