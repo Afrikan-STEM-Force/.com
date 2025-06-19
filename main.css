@@ -89,7 +89,7 @@
   }
 
   .about {
-    background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6)), url("Aban-light.jpg");
+    background: radial-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url("Aban-light.jpg");
     box-shadow: 0 0 5px rgba(245, 243, 142, 0.7), 0 0 20px rgba(0, 0, 0, 0.881);
   }
 
@@ -157,7 +157,7 @@
   }
 
   .about {
-    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("Aban-dark.jpg");
+    background: radial-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Aban-dark.jpg");
     box-shadow: 0 0 5px rgba(25, 220, 255, 0.75), 0 0 15px rgba(0, 0, 0, 0.9);
   }
 
@@ -230,11 +230,23 @@ body {
 }
 
 .about{
+  background-repeat: no-repeat;
+  background-size: 138%;
+  background-position: -3% 39%;
   border-end-start-radius: 250px;
   border-start-end-radius: 250px;
   transition: box-shadow 0.3s ease-in-out;
 
+  @media (max-width: 768px) {
+  .about {
+    background-size: 188%;             /* More zoom on small devices */
+    background-position: -23% 49%;    /* Push more to bottom-right */
+    }
+  }
 }
+  
+
+  
 
 .tgradient-reveal-norm-text {
   background: linear-gradient(120deg,  #0f4242 20%, #ffffff 80%, #000000 70%);
@@ -293,12 +305,12 @@ body {
 /* Content above the overlay layout using flex */
 .card-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   color: #000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: 90%;
   width: 100%;
 }
 
@@ -3601,12 +3613,11 @@ textarea.form-control-lg {
 }
 
 .btn-lg, .btn-group-lg > .btn {
-  --bs-btn-padding-y: 0.5rem;
+  --bs-btn-padding-y: 0.3rem;
   --bs-btn-padding-x: 1rem;
   --bs-btn-font-size: 1rem;
   --bs-btn-border-radius: 10rem;
   border: none;
-
 }
 
 .btn-sm, .btn-group-sm > .btn {
