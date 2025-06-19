@@ -15,6 +15,7 @@
 
         <!-- intl-tel-input CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
         
         <script src="script.js" defer></script>
@@ -63,15 +64,15 @@
             </div>
         </header>
     <!-- About-->
-        <section class="about page-section bg-primary" id="about">
+        <section class="about page-section" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <span id="typed-text"><h2 class="text-white mt-0">Our DNA</h2></span>
+                        <span id="typed-text"><h2 class="adaptive-text mt-0">Who We Are</h2></span>
                         <hr class="divider divider-light" />
 
 
-                        <p class="text-white-75 mb-4"><span class=" tgradient-reveal-norm-tex ">The ASF is a pioneering organization of visionary young minds,
+                        <p class="adaptive-text mb-4"><span class=" tgradient-reveal-norm-tex ">The ASF is a pioneering organization of visionary young minds,
                              dedicated to empowering African communities by igniting a passion for STEM
                               via the provision of an interdisciplinary approach to learning 
                               Science, Technology, Engineering, Arts and Mathematics.
@@ -89,7 +90,7 @@
                             <br>
                             <br>
                             
-                        <a class="btn btn-light btn-xl" href="#contact">Get Started!</a>
+                        <a class="btn btn-xl btn-changed" href="#contact">Get Started!</a>
                     </div>
                 </div>
             </div>
@@ -97,52 +98,67 @@
     <!-- Initiatives-->
 		 <section class="page-section init" id="initiatives">
             <div class="container px-2 px-lg-5">
-                <h2 class="text-white mb-4 text-center mt-1">Initiatives</h2>
+                <h2 class="adaptive-text mb-4 text-center mt-1">Initiatives</h2>
                 <hr class="divider"/>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
 
-                    <div class="col-6 col-md-6 text-center">
+                    <div class="col-lg-6 col-md-6 col-6 text-center">
                         <div class="mt-3 cards stemrise">
                             <div class="overlay"></div>
-                            <div class="card-content">
-                            <h3 class="h4 mb-2">STEMrise</h3>
-                                <br><br>
-                                <br><br>
-                                <br><br>
-                            <ul>
-                                <li>Workshops</li>
-                                <li>Home, School, and Centre-based training</li>
-                            </ul>
-                            </div>
-                        </div>
-                    </div>
+                            <div class="card-content d-flex flex-column justify-content-between h-100">
 
-                    <div class="col-6 col-md-6 text-center">
-                        <div class="mt-3 cards prodfab">
-                            <div class="overlay"></div>
-                            <div class="card-content">
-                            <h3 class="h4 mb-2">Product Fabrication</h3>
-                                <br><br>
-                                <br><br>
-                                <br><br>
-                                Outstanding creation and manufacture of projects and products, facilitated by partners.
-                            </div>
-                        </div>
-                    </div>
+                                <div class="top-section">
+                                    <h3 class="h4 mb-2">STEMrise</h3>
+                                </div>
 
-                     <div class="col-lg-6 col-md-6 text-center">
-                        <div class="mt-3 cards steminspo">
-                            <div class="overlay"></div>
-                                <div class="card-content">
-                                <div class="mb-2"></i></div>
-                                <h3 class="h4 mb-2">STEMinspire</h3>
-                                <br><br>
-                                <br><br>
-                                <br><br>
-                                <p>Join us this and every week on Linkedin as we unpack, through the launch of our weekly series, critical STE(A)M topics shaping Africa's future innovations and their leads.</p>
-                <a class="btn btn-secondary btn-xl" href="https://www.linkedin.com/company/afstemforce/posts/?feedView=all"target="_blank" type="button"><span class="subgradient-reveal">Visit</span></a>
+                                <div class="bottom-section">
+                                    <p class="px-2">
+                                            Workshops<br><br>
+                                            Home, School, and Centre-based training
+                                    </p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-6 text-center">
+                        <div class="mt-3 cards prodfab">
+                            <div class="overlay"></div>
+                            <div class="card-content d-flex flex-column justify-content-between h-100">
+
+                                <div class="top-section">
+                                    <h3 class="h4 mb-2">Product Fabrication</h3>
+                                </div>
+
+                                <div class="bottom-section">
+                                    <p class="px-2">
+                                    Outstanding creation and manufacture of projects and products, facilitated by partners.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    <div class="col-lg-6 col-md-6 col-6 text-center">
+                        <div class="mt-3 cards steminspo">
+                            <div class="overlay"></div>
+                            <div class="card-content d-flex flex-column justify-content-between h-100">
+
+                                <div class="top-section">
+                                    <h3 class="h4 mb-2">STEMinspire</h3>
+                                </div>
+
+                                <div class="bottom-section">
+                                    <p class="px-2">
+                                    Join us this and every week on LinkedIn as we unpack, through the launch of our weekly series, critical STE(A)M topics shaping Africa's future innovations and their leads.
+                                    </p>
+                                    <a class="btn btn-secondary btn-lg mt-2" href="https://www.linkedin.com/company/afstemforce/posts/?feedView=all" target="_blank">
+                                    <span class="subgradient-reveal">Visit</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -153,9 +169,9 @@
                         <br>
                         <br>
                         <br>
-                        <p class="text-white-75 mb-4 "><span class=" tgradient-reveal-norm-text ">We aim to shape Africa's future by equipping the next generation, and all eager minds, with transformative skills.
+                        <p class="adaptive-text mb-4 ">We aim to shape Africa's future by equipping the next generation, and all eager minds, with transformative skills.
                             <br>
-                            <br><br>Tailoring our tutoring services to your needs, we enrich your learning processes and experiences to meet and even exceed your expectations.</span></p>
+                            <br><br>Tailoring our tutoring services to your needs, we enrich your learning processes and experiences to meet and even exceed your expectations.</p>
                             <br>
                      </div>
                 </div>
@@ -166,7 +182,7 @@
 
         <section id="gallery" class="page-section">
             <div class="container-fluid p-0 px-4">
-                <h2 class="text-center text-white mt-0 ">Gallery</h2>
+                <h2 class="text-center adaptive-text mt-0 ">Gallery</h2>
                 <hr class="divider" />
     <!-- Gallery Carousel  -->
                 <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel" data-bs-interval="3500" data-bs-wrap="true">
@@ -226,12 +242,12 @@
         </section>
 
          <!-- Small Talk-->
-        <section class="bubble page-section bg-primary">
+        <section class="bubble page-section">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
 
-                        <p class="text-white-75 mb-4"><span class="tgradient-reveal-norm-text">
+                        <p class="adaptive-text mb-4"><span class="tgradient-reveal-norm-text">
                             <br>
                              Where building competence in using technology and engineering tools 
                              relevant to 21st-century challenges is concerned,
@@ -250,32 +266,41 @@
     <!--News-->
         <section class="page-section" id="news">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center text-white mt-0">News</h2>
+                <h2 class="text-center adaptive-text mt-0">News</h2>
                 <hr class="divider"/>
                 <div class="row gx-4 gx-lg-5">
                     <!--****************************************-->
-                    <div class="col-6 col-md-6 text-center">
+                    <div class="col-lg-6 col-md-6 col-6 text-center">
                         <div class="mt-3 cards iworkshops">
                             <div class="overlay"></div>
-                            <div class="card-content">
-                            <h3 class="h4 mb-2">Impending Workshops</h3>
-                            <br><br><br>
-                            <br><br>
-                            <br><br>
-                                Soon to come are a chain of future-shaping workshops and exhibitions.
+                            <div class="card-content d-flex flex-column justify-content-between h-100">
+
+                                <div class="top-section">
+                                    <h3 class="h4 mb-2">Impending Workshops</h3>
+                                </div>
+
+                                <div class="bottom-section">
+                                    <p class="px-2">
+                                    Soon to come are a chain of future-shaping workshops and exhibitions.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-6 col-md-6 text-center">
+                    <div class="col-lg-6 col-md-6 col-6 text-center">
                         <div class="mt-3 cards brand">
                             <div class="overlay"></div>
-                            <div class="card-content">
-                            <h3 class="h4 mb-2">Brand Launch</h3>
-                            <br><br><br><br>
-                            <br><br>
-                            <br><br>
-                                The launch of the Moyan brand with a product premiere.
+                            <div class="card-content d-flex flex-column justify-content-between h-100">
+
+                                <div class="top-section">
+                                    <h3 class="h4 mb-2">Brand Launch</h3>
+                                </div>
+
+                                <div class="bottom-section">
+                                    <p class="px-2">
+                                    The launch of the Moyan brand is imminent, with a product premiere.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -319,7 +344,7 @@
                     <div class="col-lg-8 col-xl-6 text-center">
                         <br>
                         <br>
-                        <h2 class="mt-0">Let's Get In Touch!</h2>
+                        <h2 class="mt-0 adaptive-text">Let's Get In Touch!</h2>
                         <hr class="divider" />
                         <p class="text-muted mb-5">Ready to journey with us?  Interested in Sponsoring? <br><br> Send us a message!</p>
                     </div>
@@ -349,13 +374,11 @@
                                 <label for="location">Location</label>
                             </div>
                             <!-- Phone number input-->
-                             <div class="mb-3">
-                                <label for="phone" class="form-label">Phone number</label>
-                                <div class="input-group">
-                                    <span class="input-group-text" id="dial-code">+233</span>
-                                    <input type="tel" class="form-control" id="phone" placeholder="541234567" required>
-                                </div>
+                            <label for="phone" class="adaptive-text">Phone number</label>
+                             <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" inputmode="tel" required />
                             </div>
+                            <span id="dial-code" style="display: none;"></span>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
@@ -374,7 +397,7 @@
                     <div class="col-lg-4 text-center mb-5 mb-lg-0">
                                                 
                         <!-- Socials here-->                         
-                        <div><h4 class="text-uppercase mb-4">Connect and interact with us</h4>
+                        <div><h4 class="text-uppercase mb-4 adaptive-text">Connect and interact with us</h4>
                             <div class="social-icons">
                                 <div><a target="_blank" class="bi-whatsapp fs-2 mb-3" href="https://wa.me/+233540775718"><i class="fab fa-fw fa-whatsapp"></i></a></div>
                                 <div><a target="_blank" class="bi-linkedin fs-2 mb-3" href="https://www.linkedin.com/company/afstemforce/"><i class="fab fa-fw fa-linkedin-in"></i></a></div>
@@ -391,13 +414,15 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Afrikan STEM Force. <br> All Rights Reserved</div></div>
         </footer>
 
+        <!-- intl-tel-input JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+
         <!-- Core JS-->
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script src="../JS/form-handler.js"></script>
         <script src="../JS/main.js"></script>
 
-        <!-- intl-tel-input JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
 <!-- Utils (required for formatting/validation) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
