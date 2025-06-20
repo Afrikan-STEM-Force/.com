@@ -80,7 +80,7 @@
 }
 
 .adaptive-text {
-  color: rgba(255, 255, 255, 0.75);
+  color: #ffffffbf;
 }
 
 @media (prefers-color-scheme: light) {
@@ -121,9 +121,24 @@
     box-shadow: 0 0 5px rgba(245, 243, 142, 0.7), 0 0 20px rgba(0, 0, 0, 0.881);
   }
 
+  .form-control {
+    background-color: #fff;
+    border: 1px solid rgba(245, 243, 142, 0.702);
+    color: #212529;
+
+  }
+
+  .form-control:focus {
+    background-color: #fff;
+    color: #212529;
+    box-shadow: 0 0 0 0.25rem rgba(245, 243, 142, 0.702);
+    border-color: #f8cb03e1;
+
+  }
+
   .copyright {
   box-shadow: 0 0 7px rgba(245, 241, 142, 0.5), 0 0 20px rgba(248, 203, 3, 0.881);
-}
+  }
 
 }
 
@@ -184,6 +199,19 @@
     box-shadow: 0 0 5px rgba(25, 220, 255, 0.75), 0 0 15px rgba(0, 0, 0, 0.9);
   }
 
+  .form-control {
+    background-color: #1e1e1e;
+    border: 1px solid #19dcffbf;
+    color: #ffffffbf;
+  }
+
+  .form-control:focus {
+  background-color: #1e1e1e;
+  color: #ffffffbf;
+  box-shadow: 0 0 0 0.25rem rgba(58, 204, 244, 0.25);
+  border-color: #9de7fa;
+  }
+
   .copyright {
     box-shadow: 0 0 7px rgba(25, 220, 255, 0.75), 0 0 20px rgba(25, 220, 255, 0.9);
   }
@@ -230,7 +258,7 @@ body {
 }
 
 .about{
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: 138%;
   background-position: -3% 39%;
   border-end-start-radius: 250px;
@@ -239,7 +267,7 @@ body {
 
   @media (max-width: 768px) {
   .about {
-    background-size: 188%;             /* More zoom on small devices */
+    background-size: 200%;             /* More zoom on small devices */
     background-position: -23% 49%;    /* Push more to bottom-right */
     }
   }
@@ -2445,7 +2473,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-  color: #6c757d;
+  color: #6b7379;
 }
 
 .form-control {
@@ -2455,10 +2483,7 @@ progress {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
   appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -2477,11 +2502,7 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #212529;
-  background-color: #fff;
-  border-color: #fab19d;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -2626,7 +2647,7 @@ textarea.form-control-lg {
   }
 }
 .form-select:focus {
-  border-color: #fab19d;
+  border-color: #19d;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
 }
@@ -3306,11 +3327,11 @@ textarea.form-control-lg {
   --bs-btn-bg: #ffc720;
   --bs-btn-border-color: #ffc720;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #c79b16;
+  --bs-btn-hover-bg: #b88e11;
   --bs-btn-hover-border-color: #c34e2e;
   --bs-btn-focus-shadow-rgb: 246, 122, 88;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #c79b16;
+  --bs-btn-active-bg: #1decff;
   --bs-btn-active-border-color: #b74a2c;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
