@@ -1,143 +1,236 @@
-window.addEventListener('DOMContentLoaded', event => {
-    // Shrink navbar on scroll
+window.addEventListener('DOMContentLoaded', () => {
+
+    // Navbar shrink
     const navbarShrink = () => {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
+        const navbarCollapsible = document.querySelector('#mainNav');
         if (!navbarCollapsible) return;
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink');
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink');
-        }
+        navbarCollapsible.classList.toggle('navbar-shrink', window.scrollY > 0);
     };
     document.addEventListener('scroll', navbarShrink);
+    navbarShrink();
 
-    // Smooth scrolling for nav links
-    const links = document.querySelectorAll('.nav-link');
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70,
-                    behavior: 'smooth'
-                });
+    // Collapse navbar on link click (mobile fix)
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    document.querySelectorAll('#navbarResponsive .nav-link').forEach(item => {
+        item.addEventListener('click', () => {
+            if (getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
             }
         });
     });
 
-    // Scrollspy
-    const mainNav = document.body.querySelector('#mainNav');
-    if (mainNav) {
-        new bootstrap.ScrollSpy(document.body, {
-            target: '#mainNav',
-            rootMargin: '0px 0px -40%',
-        });
+    //Typewriter effect
+    function typeWriterEffect(element, speed = 70) {
+    const text = element.getAttribute('data-text');
+    element.textContent = "";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, speed);
+        } else {
+            // ✅ Remove the cursor after typing finishes
+            element.style.borderRight = "none";
+        }
+    }
+    type();
     }
 
-    // Initialize EmailJS
-    emailjs.init("jqJE1ffervnm4dJ-z"); // Replace with your actual EmailJS public key
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                typeWriterEffect(entry.target);
+                observer.unobserve(entry.target);
+            }            
+        });
+    }, { threshold: 0.2 });
 
-    // Enforce numeric-only input for phone field
-    document.getElementById('phone').addEventListener('input', function () {
-        this.value = this.value.replace(/\D/g, '');
+    document.querySelectorAll('.typewriter-text').forEach(el => observer.observe(el));
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const gallerySection = document.querySelector("#moving-gallery");
+  const rows = document.querySelectorAll(".image-row");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Start the animations when in view
+          rows[0].classList.add("animate-left");
+          rows[1].classList.add("animate-right");
+          rows[2].classList.add("animate-left");
+        } else {
+          // Stop when out of view
+          rows.forEach((row) => {
+            row.classList.remove("animate-left", "animate-right");
+          });
+        }
+      });
+    },
+    { threshold: 0.3 } // activate when 30% of section is visible
+  );
+
+  observer.observe(gallerySection);
+});
+
+// === Initiatives Moving Gallery Observer ===
+const gallerySection = document.querySelector('.moving-gallery-section');
+const galleryRows = gallerySection.querySelectorAll('.image-row');
+
+// add animation classes once on load
+galleryRows.forEach((row, i) => {
+  row.classList.add(i % 2 === 0 ? 'animate-left' : 'animate-right');
+});
+
+const galleryObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      gallerySection.classList.add('active');
+      galleryRows.forEach(row => row.style.animationPlayState = 'running');
+    } else {
+      galleryRows.forEach(row => row.style.animationPlayState = 'paused');
+    }
+  });
+}, { threshold: 0.3 });
+
+galleryObserver.observe(gallerySection);
+
+
+        // ✅ PEEK-BOT RANDOM POP EFFECT
+    // ---------------------------
+
+    const peekSection = document.querySelector(".peekbot-section");
+    const bot = document.querySelector(".peek-bot");
+
+    let botActive = false;   // replaces isActive
+    let botPopping = false;  // replaces popping
+
+    const peekObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        botActive = true;
+        startBotPop();
+        } else {
+        botActive = false;
+        bot.classList.remove("visible");
+        }
+    });
+    }, { threshold: 0.5 });
+
+    peekObserver.observe(peekSection);
+
+
+    // ✅ Random pop loop (renamed safely)
+    function startBotPop() {
+    if (botPopping) return;
+    botPopping = true;
+
+    function popCycle() {
+        if (!botActive) {
+        botPopping = false;
+        return;
+        }
+
+        bot.classList.add("visible");
+
+        setTimeout(() => {
+        bot.classList.remove("visible");
+
+        const delay = Math.random() * 3000 + 2000;
+
+        setTimeout(popCycle, delay);
+        }, Math.random() * 5000 + 3000);
+    }
+
+    popCycle();
+    }
+
+// === ROVERBOT WALK ANIMATION OBSERVER (LOOP + PAUSE WHEN NOT VISIBLE) ===
+const roverBot = document.querySelector(".roverbot");
+const footer = document.querySelector("footer");
+
+const roverObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Footer visible → start walking
+            roverBot.style.animationPlayState = "running";
+            roverBot.style.opacity = "1";
+        } else {
+            // Footer not visible → pause walking
+            roverBot.style.animationPlayState = "paused";
+        }
+    });
+}, { threshold: 0.2 });
+
+roverObserver.observe(footer);
+
+    // intl-tel-input setup
+    const phoneInput = document.querySelector("#phone");
+    const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        geoIpLookup: callback => {
+            fetch("https://ipinfo.io/json?token=YOUR_TOKEN_HERE")
+                .then(resp => resp.json())
+                .then(resp => callback(resp.country))
+                .catch(() => callback("us"));
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
     });
 
-    //zip codes etc
-     const phoneInput = document.querySelector("#phone");
-  const dialCodeSpan = document.getElementById("dial-code");
+    // Allow only digits (preserving plugin formatting)
+    phoneInput.addEventListener('input', () => {
+        let digits = phoneInput.value.replace(/[^\d\s\-\(\)\+]/g, ''); 
+        phoneInput.value = digits;
+    });
 
-  const iti = window.intlTelInput(phoneInput, {
-    initialCountry: "auto",
-    nationalMode: true, // User enters national number only
-    geoIpLookup: callback => {
-      fetch("https://ipinfo.io/json?token=your_token_here")
-        .then(resp => resp.json())
-        .then(resp => callback(resp.country))
-        .catch(() => callback("us"));
-    },
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-  });
-
-  phoneInput.addEventListener("countrychange", function () {
-    const selectedDialCode = iti.getSelectedCountryData().dialCode;
-    dialCodeSpan.textContent = `+${selectedDialCode}`;
-  });
-    // Validate form inputs
-    function validateForm(formData) {
-        const { name, email, phone, message } = formData;
-        if (!name || !email || !phone || !message) {
-            alert("Please fill in all required fields.");
-            return false;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            alert("Please enter a valid email address.");
-            return false;
-        }
-        return true;
-    }
-
-    // Show success or error message
-    function showFeedbackMessage(success) {
-        const successMsg = document.getElementById('submitSuccessMessage');
-        const errorMsg = document.getElementById('submitErrorMessage');
-        if (success) {
-            successMsg.classList.remove('d-none');
-            errorMsg.classList.add('d-none');
-            successMsg.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            successMsg.classList.add('d-none');
-            errorMsg.classList.remove('d-none');
-            errorMsg.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    // Submit button click handler
-    document.getElementById('submitButton').addEventListener('click', function (event) {
-        event.preventDefault();
+    // Form submit
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
 
         const formData = {
             name: document.getElementById('name').value.trim(),
             email: document.getElementById('email').value.trim(),
             institution: document.getElementById('institution').value.trim(),
             location: document.getElementById('location').value.trim(),
-            phone: document.getElementById('phone').value.trim(),
+            phone: iti.getNumber(), // formatted full number with country code
             message: document.getElementById('message').value.trim(),
         };
 
-        const formattedPhone = iti.getNumber(); // e.g. "+233541234567"'
-        const fullPhone = `${dialCodeSpan.textContent}${phoneInput.value}`;
+        // Basic validation
+        if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+            alert("Please fill in all required fields.");
+            return;
+        }
 
-        console.log("Form Data Collected:", formData);
+        // Corrected email validation regex
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
 
-        if (!validateForm(formData)) return;
+        if (!iti.isValidNumber()) {
+            alert("Please enter a valid phone number.");
+            return;
+        }
 
-        emailjs.send("service_6vfh60m", "template_amm1rca", formData)
-            .then((response) => {
-                console.log("Email sent successfully:", response.status, response.text);
-                showFeedbackMessage(true);
-            })
-            .catch((error) => {
-                console.error("Error sending email:", error);
-                showFeedbackMessage(false);
-            });
-    });
-
-    // Collapse responsive navbar after link click
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(document.querySelectorAll('#navbarResponsive .nav-link'));
-    responsiveNavItems.forEach(responsiveNavItem => {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
+        // ✅ Send to EmailJS
+            emailjs.send("service_6vfh60m", "template_amm1rca", formData)
+        .then(() => {
+            document.getElementById('submitSuccessMessage').classList.remove('d-none');
+            form.reset();
+            iti.setCountry("auto");
+        })
+        .catch((err) => {
+            console.error(err);
+            document.getElementById('submitErrorMessage').classList.remove('d-none');
         });
+
+
     });
 
-    // Activate SimpleLightbox
+    // SimpleLightbox init
     new SimpleLightbox({ elements: '#gallery a.gallery-box' });
-
-    // Trigger shrink on load
-    navbarShrink();
 });
