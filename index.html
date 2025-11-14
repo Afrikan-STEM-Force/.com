@@ -7,15 +7,16 @@
         <meta name="author" content="" /> 
         <title>Afrikan STEM Force </title>
         <!-- ASF Favicon-->
-        <link rel="icon" type="image/x-icon" href="favicon.webp" />
+        <link rel="icon" type="image/x-icon" href="favicon.png" />
 
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
 
-        <!-- intl-tel-input CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+
+        <!-- intl-tel-input CSS & JS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
         
         <script src="script.js" defer></script>
@@ -39,7 +40,6 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#initiatives">Initiatives</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -48,31 +48,76 @@
             </div>
         </nav>
     <!-- Masthead-->
-        <header class="masthead" id="page-top">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-40 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                          <h1 class="font-weight-bold  animated-text" style="color: #fffffff0;">The<br>
-                            <span class="gradient-reveal">Afrikan</span>
-                            <span class="gradient-reveal">STEM</span>
-                            <span class="gradient-reveal">Force</span>
-                            <br>
-                        </h1>
-                    </div>
-                    
-                </div>
+        <header class="masthead" id="page-top"><img src="SITBOT.webp" class="aforeground" alt="sitting robot">
+
+    <!-- Background Slideshow -->
+    <div id="mastheadCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="1.webp" class="masthead-bg" alt="Lesson activity">
             </div>
-        </header>
+
+            <div class="carousel-item">
+                <img src="2.webp" class="masthead-bg" alt="Microbit Session">
+            </div>
+
+            <div class="carousel-item">
+                <img src="3.webp" class="masthead-bg" alt="Competition excerpts">
+            </div>
+
+            <div class="carousel-item">
+                <img src="4.jpg" class="masthead-bg" alt="Accra Technical Uni Exhibition">
+            </div>
+
+            <div class="carousel-item">
+                <img src="5.webp" class="masthead-bg" alt="Girls in ICT Day '25 with STEMINC">
+            </div>
+
+            <div class="carousel-item">
+                <img src="6.jpg" class="masthead-bg" alt="STEM Workshop">
+            </div>
+
+            <div class="carousel-item">
+                <img src="7.jpg" class="masthead-bg" alt="Microbit Session exerpts">
+            </div>
+
+            <div class="carousel-item">
+                <img src="8.webp" class="masthead-bg" alt="GRC '25">
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Text on top of slideshow -->
+    <div class="container px-4 px-lg-5 h-100 masthead-content">
+        <div class="row gx-4 gx-lg-5 h-40 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="the">The<br></h1>
+                <h1 class="hero-title">
+                    <span>Afrikan</span>
+                    <span class="circuit-text">STEM</span>
+                    <span>Force</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+</header>
+
     <!-- About-->
         <section class="about page-section" id="about">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <span id="typed-text"><h2 class="adaptive-text mt-0">Who We Are</h2></span>
+                        <span id=""><h2 class="adaptive-text mt-0 typewriter-text" data-text="Who We Are"></h2></span>
                         <hr class="divider" />
 
 
-                        <p class="adaptive-text mb-4"><span class=" tgradient-reveal-norm-tex ">The ASF is a pioneering organization of visionary young minds,
+                        <p class="adaptive-text mb-4"><span class=" tgradient-reveal-norm-tex ">
+                            The ASF is a pioneering organization of visionary young minds,
                              dedicated to empowering African communities by igniting a passion for STEM
                               via the provision of an interdisciplinary approach to learning 
                               Science, Technology, Engineering, Arts and Mathematics.
@@ -93,8 +138,8 @@
         </section>
     <!-- Initiatives-->
 		 <section class="page-section init" id="initiatives">
-            <div class="container px-2 px-lg-5">
-                <h2 class="adaptive-text mb-4 text-center mt-1">Initiatives</h2>
+            <div class="container typewriter-container px-2 px-lg-5">
+                <span id=""><h2 class="adaptive-text mb-4 text-center mt-1 typewriter-text" data-text="Initiatives"></h2></span>
                 <hr class="divider"/>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
 
@@ -135,7 +180,6 @@
                         </div>
                     </div>
                 
-
                     <div class="col-lg-6 col-md-6 col-6 text-center">
                         <div class="mt-3 cards steminspo">
                             <div class="overlay"></div>
@@ -149,7 +193,7 @@
                                     <p class="px-2 adaptive-text">
                                     Join us weekly on LinkedIn for a new series exploring key STE(A)M topics driving Africa’s future innovations and leaders.
                                     </p>
-                                    <a class="btn btn-secondary btn-lg mt-2" href="https://www.linkedin.com/company/afstemforce/posts/?feedView=all" target="_blank">
+                                    <a class="btn btn-secondary btn-sm mt-2" href="https://www.linkedin.com/company/afstemforce/posts/?feedView=all" target="_blank">
                                     <span class="subgradient-reveal">Visit</span>
                                     </a>
                                 </div>
@@ -158,7 +202,6 @@
                     </div>
                 </div>
 
-                    
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-baseline">
                         <br>
@@ -168,100 +211,69 @@
                             <br>
                      </div>
                 </div>
-
             </div>
-                
-        </section>
-
-        <section id="gallery" class="page-section">
-            <div class="container-fluid p-0 px-4">
-                <h2 class="text-center adaptive-text mt-0 ">Gallery</h2>
-                <hr class="divider" />
-    <!-- Gallery Carousel  -->
-                <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel" data-bs-interval="3500" data-bs-wrap="true">
-                    <div class="carousel-inner ">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <img src="1.webp" class="d-block w-100" alt="Gallery Image 1">
-                            <div class="overlay-text">Lesson activity</div>
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <img src="2.webp" class="d-block w-100" alt="Gallery Image 2">
-                            <div class="overlay-text"> Microbit Session </div>
-                        </div>
-                        <!-- Slide 3 -->
-                        <div class="carousel-item">
-                            <img src="3.webp" class="d-block w-100" alt="Gallery Image 3">
-                            <div class="overlay-text">Competition excerpts</div>
-                        </div>
-                        <!-- Slide 4 -->
-                        <div class="carousel-item">
-                            <img src="4.webp" class="d-block w-100" alt="Gallery Image 4">
-                            <div class="overlay-text">Accra Technical Uni Exhibition</div>
-                        </div>
-                        <!-- Slide 5 -->
-                        <div class="carousel-item">
-                            <img src="5.webp" class="d-block w-100" alt="Gallery Image 5">
-                            <div class="overlay-text">Girls in ICT Day '25 with STEMINC</div>
-                        </div>
-                        <!-- Slide 6 -->
-                        <div class="carousel-item">
-                            <img src="6.webp" class="d-block w-100" alt="Gallery Image 6">
-                            <div class="overlay-text"> STEM Workshop</div>
-                        </div>
-                        <!-- Slide 7 -->
-                        <div class="carousel-item">
-                            <img src="7.webp" class="d-block w-100" alt="Gallery Image 7">
-                            <div class="overlay-text">Microbit Session exerpts</div>
-                        </div>
-                        <!-- Slide 8 -->
-                        <div class="carousel-item">
-                            <img src="8.webp" class="d-block w-100" alt="Gallery Image 8">
-                            <div class="overlay-text">Ghana Technical Student's Awards '24</div>
-                        </div>
-                    </div>
-                    <!-- Carousel Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+            
+            <div class="gallery-background">
+                <section id="moving-gallery" class="moving-gallery-section">
+                <div class="image-row row-1">
+                    <img src="9.webp" alt="">
+                    <img src="bg-masthead.webp" alt="">
+                    <img src="10.webp" alt="">
+                    <img src="5.webp" alt="">
+                </div>
+                <div class="image-row row-2">
+                    <img src="bg-masthead.jpg" alt="">
+                    <img src="9.webp" alt="">
+                    <img src="8.webp" alt="">
+                    <img src="6.jpg" alt="">
+                    <img src="4.jpg" alt="">
+                    <img src="11.jpg" alt="">
+                    <img src="10.webp" alt="">
+                </div>
+                <div class="image-row row-3">
+                    <img src="12.webp" alt="">
+                    <img src="13.jpg" alt="">
+                    <img src="14.jpg" alt="">
+                    <img src="15.jpg" alt="">
                 </div>
             </div>
+            
         </section>
+
 
          <!-- Small Talk-->
-        <section class="bubble page-section">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-
-                        <p class="adaptive-text mb-4"><span class="tgradient-reveal-norm-text">
+        <section class="bubble bub-section peekbot-section">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="adaptive-text mb-4">
+                        <span class="tgradient-reveal-norm-text">
                             <br>
-                             Where building competence in using technology and engineering tools 
-                             relevant to 21st-century challenges is concerned,
-                             we introduce students to careers in STEM fields.
-                            <br>
-                            <br>Not to mention supporting hands-on, experiential learning and the
-                             enhancement of technological literacy as executed by our facilitators
-                              who ensure the nurturing of creativity and innovation.</span></p>
-                             
-                    </div>
+                            Where building competence in using technology and engineering tools 
+                            relevant to 21st-century challenges is concerned,
+                            we introduce students to careers in STEM fields.
+                            <br><br>
+                            Not to mention supporting hands-on, experiential learning and the
+                            enhancement of technological literacy as executed by our facilitators
+                            who ensure the nurturing of creativity and innovation.
+                        </span>
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <img src="peekbot.png" alt="bot" class="peek-bot">
+    </section>
+
+
 
 
     <!--News-->
         <section class="page-section" id="news">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center adaptive-text mt-0">News</h2>
+            <div class="container typewriter-container px-4 px-lg-5">
+                <h2 class="text-center adaptive-text mt-0 typewriter-text" data-text="News"></h2>
                 <hr class="divider"/>
-                <div class="row gx-4 gx-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
                     <!--****************************************-->
                     <div class="col-lg-6 col-md-6 col-6 text-center">
                         <div class="mt-3 cards iworkshops">
@@ -297,6 +309,23 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-6 col-md-6 col-6 text-center">
+                        <div class="mt-3 cards hire">
+                            <div class="overlay"></div>
+                            <div class="card-content d-flex flex-column justify-content-between h-100">
+
+                                <div class="top-section">
+                                    <h3 class="h4 mb-2 adaptive-text">Instructor Hiring</h3>
+                                </div>
+
+                                <div class="bottom-section">
+                                    <p class="px-2 adaptive-text">
+                                    Send resume or CV to afstemforce@gmail.com and be part of a growing movement shaping Africa's future.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--****************************************-->
                 </div>
             </div>
@@ -305,41 +334,41 @@
         
            <!--Partners-->
         <section class="page-section partners hidden" id="partners" >
-            <div class="container px-4 px-lg-5 ">
-                <h2 class="text-center mt-0">Partners</h2>
+            <div class=" typewriter-container px-4 px-lg-5 ">
+                <h2 class="text-center mt-0 typewriter-text" data-text="Partners"></h2>
                 <hr class="divider"/>
                 <div class="row gx-4 gx-lg-5 img-fluid text-center">
                     <div class="col-md-2 mb-4">
-                        <img class="img-fluid partner-logo" src="Platinum logo-no.bg.webp" alt="Platinum">
+                        <img class="img-fluid partner-logo" src="Platinum logo-no.bg.png" alt="Platinum">
                     </div>
                     <div class="col-md-3 mb-4">
-                        <img class="img-fluid partner-logo" src="microsoft._logo-no.bg-.webp" alt="Microsoft">
+                        <img class="img-fluid partner-logo" src="microsoft._logo.png" alt="Microsoft">
                     </div>
                     <div class="col-md-2 mb-4">
-                        <img class="img-fluid partner-logo liquid" src="logo_LIQUID-2048x598.webp" alt="Liquid">
+                        <img class="img-fluid partner-logo liquid" src="logo_LIQUID.png" alt="Liquid">
                     </div>
                     <div class="col-md-2 mb-4">
                         <img class="img-fluid partner-logo" src="aburigirls_robotics.webp" alt="aburigirls_robotics">
                     </div>
                     <div class="col-md-3 mb-4">
-                        <img class="img-fluid partner-logo steminc" src="STEMinc.webp" alt="STEMinc">
+                        <img class="img-fluid partner-logo steminc" src="STEMinc.png" alt="STEMinc">
                     </div>
                 </div>
             </div>
         </section>
     
         
-
         <!-- Contact-->
         <section class="page-section contact" id="contact">
+
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
                         <br>
                         <br>
-                        <h2 class="mt-0 adaptive-text">Let's Get In Touch!</h2>
+                        <h2 class="mt-0 adaptive-text typewriter-text" data-text="Let's Get In Touch!"></h2>
                         <hr class="divider" />
-                        <p class="adaptive-text mb-5">Ready to journey with us?  Interested in Sponsoring? <br><br> Send us a message!</p>
+                        <h6 class="adaptive-text mb-5">Ready to journey with us?  Interested in Sponsoring or Supporting? <br><br> Send us a message!</h6>
                     </div>
                 </div>
 
@@ -367,11 +396,11 @@
                                 <label for="location" class="adaptive-text">Location</label>
                             </div>
                             <!-- Phone number input-->
-                            <label for="phone" class="adaptive-text">Phone number</label>
-                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" inputmode="tel" required />
+                            <div class="mb-3">
+                                <label for="phone" class="adaptive-text">Phone Number</label><br>
+                                <input type="tel" id="phone" class="form-control" required>
+                                <input type="hidden" name="full_phone" id="full_phone">
                             </div>
-                            <span id="dial-code" style="display: none;"></span>
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
@@ -380,9 +409,9 @@
                             </div>
                             <!-- Success and Error Messages-->
                             <div id="submitSuccessMessage" class="d-none adaptive-text">Sent!</div>
-                            <div id="submitErrorMessage" class="d-none">There was an error sending your message. Please try again.</div>
+                            <div id="submitErrorMessage" class="d-none adaptive-text">There was an error sending your message. Please try again.</div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary subprime btn-xl" id="submitButton" type="button"><span class="subgradient-reveal">Submit</span></button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit"><span class="subgradient-reveal">Submit</span></button></div>
                         </form>
                     </div>
                 </div>
@@ -392,7 +421,6 @@
                         <!-- Socials here-->                         
                         <div><h4 class="text-uppercase mb-4 adaptive-text">Connect and interact with us</h4>
                             <div class="social-icons">
-                                <div><a target="_blank" class="bi-whatsapp fs-2 mb-3" href="https://wa.me/+233540775718"><i class="fab fa-fw fa-whatsapp"></i></a></div>
                                 <div><a target="_blank" class="bi-linkedin fs-2 mb-3" href="https://www.linkedin.com/company/afstemforce/"><i class="fab fa-fw fa-linkedin-in"></i></a></div>
                                 <div><a target="_blank" class="bi-instagram fs-2 mb-3" href="https://www.instagram.com/afrikanstemforce?igsh=MXV5cTlxMDQxYzFucg%3D%3D&utm_source=qr"><i class="fab fa-fw fa-instagram"></i></a></div>
                                 <div><a target="_blank" class="bi-youtube fs-2 mb-3" href="https://www.youtube.com/@afrikanstemforce_1"><i class="fab fa-fw fa-youtube"></i></a></div>
@@ -401,6 +429,7 @@
                             </div>
                 </div>
             </div>
+            <img src="roverbo.png" alt="rover" class="roverbot">
         </section>
         <!-- Footer-->
         <footer class="bg-dark py-5 copyright">
@@ -413,7 +442,6 @@
 
         <!-- Core JS-->
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script src="../JS/form-handler.js"></script>
         <script src="../JS/main.js"></script>
 
 
