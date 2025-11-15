@@ -295,7 +295,7 @@ img {
     position: relative;
     height: 100vh;              /* Full screen height */
     min-height: 500px;
-    max-height: 554px;
+    max-height: 870px;
     width: 100%;
     overflow: hidden;
     border-bottom-right-radius: 250px;
@@ -11842,3 +11842,4 @@ hr.divider-light {
 .carousel-item:hover .overlay-text {
     opacity: 1;
 }
+
